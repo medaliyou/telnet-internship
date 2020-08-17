@@ -1,4 +1,6 @@
 <div *ngIf="wsService.isConnected();">
+    <h2>Transaction</h2>
+
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
   
       <div *ngFor="let element of elements" class="form-row">

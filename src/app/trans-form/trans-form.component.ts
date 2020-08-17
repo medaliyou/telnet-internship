@@ -35,7 +35,8 @@ export class TransFormComponent implements OnInit {
   }
 
   getTransaction(){
-    return JSON.stringify(this.form.getRawValue());
+    //return JSON.stringify(this.form.getRawValue());
+    return this.form.getRawValue();
   };
 
   startTransaction(){

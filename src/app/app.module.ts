@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConnFormComponent } from './conn-form/conn-form.component'
 import { WebSocketService } from './services/web-socket.service';
 
+import {MatToolbarModule} from '@angular/material/toolbar'; 
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { WebSocketService } from './services/web-socket.service';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCardModule,
+    MatToolbarModule
   ],
   providers: [WebSocketService],
   bootstrap: [AppComponent],
