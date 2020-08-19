@@ -1,17 +1,27 @@
 <mat-toolbar>
     <span>Client Interface </span>
+
+    <mat-icon>
+    </mat-icon>
+
 </mat-toolbar>
-<mat-card>
-    <div id="conn">
-        <app-conn-form [elements]="connElements$ | async"></app-conn-form>
-    </div>
-</mat-card>
+
 
 
 <mat-card>
-    <div id="trans" >
-        <app-trans-form [elements]="transElements$ | async"></app-trans-form>
-    </div>
-</mat-card>
 
+    <mat-card-content>
+        <div id="conn">
+            <app-conn-form [elements]="connElements$ | async"></app-conn-form>
+        </div>
+    </mat-card-content>
+    <br>
+    <mat-card-content>
+
+        <div id="trans" >
+            <app-trans-form [elements]="transElements$ | async"></app-trans-form>
+        </div>
+    </mat-card-content>
+
+</mat-card>
 

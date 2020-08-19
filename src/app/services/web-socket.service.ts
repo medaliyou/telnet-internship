@@ -20,7 +20,7 @@ export class WebSocketService {
   subscribe(){
     this.myWebSocket.subscribe(
       msg => {
-        console.log('message received: ' + msg)
+        console.log('message received: '+msg)
       },
       err => { 
         console.log('Got err', err);
@@ -29,7 +29,7 @@ export class WebSocketService {
         console.log('complete');
       }  
     );
-    // this.myWebSocket.error({code: 3001, reason: 'App error'});
+    //this.myWebSocket.error({code: 3001, reason: 'App error'});
     /*
     this.myWebSocket.pipe(
       retryWhen(errors =>
@@ -75,10 +75,21 @@ export class WebSocketService {
     this.closeSubject.subscribe(_ => { this.connected=false;this.networkError=true; console.log('Underlying WebSocket connection closed'); });
     this.myWebSocket = webSocket({
       url: uri,
+      deserializer: msg => {
+        const res = msg;
+          if (res.data === "end") {
+            // Here you have a complete pdf as Arraybuffer, you can do whatever you want
+              console.log( "Done" );
+          } else {
+              console.log(msg.data)
+          }
+          return { type: "error" };
+      },
       closeObserver: this.closeSubject,
       openObserver: {
         next: () => {console.log('Underlying WebSocket connection open');this.connected=true;this.networkError=false;} 
-      }     
+      } 
+    
     });
     
     console.log("CONNECTING : ",uri);

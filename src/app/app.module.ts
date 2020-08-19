@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConnFormComponent } from './conn-form/conn-form.component'
 import { WebSocketService } from './services/web-socket.service';
+import {MatIconModule} from '@angular/material/icon';
 
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 
@@ -26,7 +27,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [WebSocketService],
   bootstrap: [AppComponent],

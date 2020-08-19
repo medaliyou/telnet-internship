@@ -3,16 +3,16 @@
 
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
   
-      <div *ngFor="let element of elements" class="form-row">
+      <div class="form-row" *ngFor="let element of elements">
         <app-trans [element]="element" [form]="form"></app-trans>
       </div>
-  
-      <div class="form-row">
-        <button type="submit" [disabled]="!form.valid">Connect</button>
+      <div class="row">
+        <button  class="col-sm" type="reset" (click)="onReset()">New Connection</button>
+
+        <button class="col-sm" type="submit" [disabled]="!form.valid">Connect</button>
+
       </div>
-      <div class="form-row">
-        <button type="reset" (click)="onReset()">New Connection</button>
-      </div>
+
     </form>
   
     <div *ngIf="payLoad" class="form-row">
