@@ -1,0 +1,45 @@
+a {
+    text-decoration: none;
+    color: rgb(16, 49, 139);
+}
+
+h1, h2, h3, h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.mat-toolbar{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-display: initial;
+}
+
+.mat-card{
+    font-family: 'Serif';
+    font-size: medium;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+:root {
+    --primary-color: #fff;
+    --background-color: #e5e5e5;
+    --text-color: #2d2d2d;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Lato;
+    padding: 0;
+    margin: 0;
+  }
+  :host {
+    display: block;
+    padding: 12px;
+    border-radius: 2px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+  }

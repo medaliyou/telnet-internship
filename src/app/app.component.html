@@ -1,27 +1,36 @@
-<mat-toolbar>
-    <span>Client Interface </span>
-
-    <mat-icon>
-    </mat-icon>
-
+<mat-toolbar color="primary">
+    Client Interface 
+  
 </mat-toolbar>
+<div >
+    <main>
+        <mat-card class="form-row">
+
+            <mat-card-content class='col-sm'>
+                <div id="conn">
+                    <app-conn-form [elements]="connElements$ | async"></app-conn-form>
+                </div>
+            </mat-card-content>
+            <br>
+            <mat-card-content class='col-sm'>
+
+                <div id="trans" >
+                    <app-trans-form [elements]="transElements$ | async"></app-trans-form>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </main>
 
 
+    <!-- footer -->
 
-<mat-card>
-
-    <mat-card-content>
-        <div id="conn">
-            <app-conn-form [elements]="connElements$ | async"></app-conn-form>
+    <footer class="footer">
+        <div class="container">
+        <div class="content has-text-centered">
+            <p>&copy; All rights reserved for
+                <a href="https://www.groupe-telnet.com">TELNET</a> 2020 
+            </p>
         </div>
-    </mat-card-content>
-    <br>
-    <mat-card-content>
-
-        <div id="trans" >
-            <app-trans-form [elements]="transElements$ | async"></app-trans-form>
         </div>
-    </mat-card-content>
-
-</mat-card>
-
+    </footer>
+</div>

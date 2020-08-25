@@ -24,21 +24,25 @@ export class ConnFormService {
 
         ],
         required: true,
-        order: 3
+        order: 3,
+        value: "ws"
+
       }),
       new FormTextbox({
         key: 'ip',
         label: 'Server IP',
         required: true,
         order: 1,
-        type: 'string'
+        type: 'string',
+        value: '127.0.0.1'
       }),
       new FormTextbox({
         key: 'port',
         label: 'Server PORT',
         required: true,
         order: 2,
-        type: 'number'
+        type: 'number',
+        value: '1234'
 
       })
     ];

@@ -9,9 +9,9 @@ import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConnFormComponent } from './conn-form/conn-form.component'
 import { WebSocketService } from './services/web-socket.service';
-import {MatIconModule} from '@angular/material/icon';
-
 import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatChipsModule} from '@angular/material/chips';
+import 'hammerjs'
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     BrowserAnimationsModule,
     MatCardModule,
     MatToolbarModule,
-    MatIconModule
+    MatChipsModule
   ],
   providers: [WebSocketService],
   bootstrap: [AppComponent],

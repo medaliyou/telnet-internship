@@ -1,0 +1,64 @@
+input.ng-valid, input.ng-valid.required  {
+
+    border-left: solid 5px #3f51b5; /* green */
+
+}
+
+input.ng-invalid:not(form)  {
+
+    border-left: solid 5px indianred; /* red */
+}
+select.ng-valid, select.ng-valid.required  {
+
+    border-left: solid 5px #3f51b5; /* green */
+
+}
+
+select.ng-invalid:not(form)  {
+
+    border-left: solid 5px indianred; /* red */
+}
+
+label{
+    font-size: medium;
+    font-stretch: normal;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'Gill Sans', sans-serif;
+    font-weight: normal;
+    margin-left: auto ;
+}
+.errorMessage{
+    color: indianred;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 15px;
+}
+
+button{
+    background-color: #3f51b5;
+    color: white;
+    margin-top: 10px;
+    margin-left: auto;
+    font-family: monospace;
+}
+#status{
+    margin-top: 0%;
+    margin-bottom: 2%;
+    margin-left:86%;
+    margin-right: 1%;
+    size: 20px;
+    text-justify: auto;
+    text-align: center;
+
+}
+#online{
+    color:white;
+    background-color: #3f51b5;
+}
+#offline{
+    color:white;
+
+    background-color: indianred;
+}
+

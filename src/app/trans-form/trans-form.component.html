@@ -4,6 +4,7 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
   
       <div *ngFor="let element of elements" class="form-row">
+       
         <app-trans [element]="element" [form]="form"></app-trans>
       </div>
   
@@ -11,8 +12,9 @@
         <button type="submit" [disabled]="!form.valid">Sned Transaction</button>
       </div>
     </form>
-  
+  <!--
     <div *ngIf="payLoad" class="form-row">
       <strong>Saved the following values</strong><br>{{payLoad | json}}
     </div>
   </div>
+-->

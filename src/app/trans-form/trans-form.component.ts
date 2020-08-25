@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, SelectMultipleControlValueAccessor } from '@angular/forms';
 import { FormBase } from '../form-base';
 import { FormControlService } from '../form-control.service';
 import { WebSocketService } from '../services/web-socket.service';
+import { throwIfEmpty } from 'rxjs/operators';
 
 @Component({
   selector: 'app-trans-form',
@@ -21,7 +22,10 @@ export class TransFormComponent implements OnInit {
     private fcs : FormControlService,
     public wsService : WebSocketService
     ) {}
-
+  
+  onReset(){
+    this.form.reset();
+  }
 
   ngOnInit(): void {
     this.form = this.fcs.toFormGroup(this.elements);
@@ -42,7 +46,16 @@ export class TransFormComponent implements OnInit {
   startTransaction(){
     console.log(this.getTransaction());
     console.log(this.wsService);
-    this.wsService.send(this.getTransaction());
+    this.wsService.send(this.getTransaction()); 
+    if(! this.wsService.networkError){
+      alert("Transaction Sent Successfully");
+
+    }else{
+      alert("Error !");
+    }
+    this.onReset();
+
 
   }
+
 }

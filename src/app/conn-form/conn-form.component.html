@@ -1,7 +1,28 @@
 <div>
     <h2>Server Connection</h2>
+    <!--
+    <div id="status" >
+        <mat-chip-list color="primary">
+          <mat-chip id="online" *ngIf="this.wsService.connected">
+            {{ this.wsService.getStatus() }}
+          </mat-chip>
+          <mat-chip id="offline" *ngIf="!this.wsService.connected">
+            {{ this.wsService.getStatus() }}
+          </mat-chip>
+        </mat-chip-list>
+    </div>
+  -->
+    <div id="status"> 
+      <mat-card id="online" *ngIf="this.wsService.connected" >
+        {{ this.wsService.getStatus() }}
+      </mat-card>
+    <mat-card id="offline" *ngIf="!this.wsService.connected"  >
+      {{ this.wsService.getStatus() }}
+    </mat-card>
+    </div>
 
-    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    </div>
+          <form (ngSubmit)="onSubmit()" [formGroup]="form">
   
       <div class="form-row" *ngFor="let element of elements">
         <app-trans [element]="element" [form]="form"></app-trans>
@@ -14,8 +35,9 @@
       </div>
 
     </form>
-  
+  <!--
     <div *ngIf="payLoad" class="form-row">
       <strong>Saved the following values</strong><br>{{payLoad}}
     </div>
   </div>
+-->

@@ -4,6 +4,7 @@ import { webSocket, WebSocketSubject} from 'rxjs/webSocket';
 import { Subject } from 'rxjs';
 import { tap, delay, retryWhen } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
+import { exit } from 'process';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +18,19 @@ export class WebSocketService {
   constructor() {}
 
 
-  subscribe(){
+  subscribeSocket(){
     this.myWebSocket.subscribe(
       msg => {
-        console.log('message received: '+msg)
+        
+        this.connected = true;
+        this.networkError = false;
+
       },
       err => { 
+        this.connected = false;
+
+        this.networkError = true;
+
         console.log('Got err', err);
       },
       () =>  { 
@@ -72,30 +80,32 @@ export class WebSocketService {
     if( uri === undefined ){
       return ;
     }
-    this.closeSubject.subscribe(_ => { this.connected=false;this.networkError=true; console.log('Underlying WebSocket connection closed'); });
+    this.closeSubject.subscribe(_ => { this.connected=false;this.networkError=true; console.log('Underlying WebSocket connection closed');exit(); });
     this.myWebSocket = webSocket({
       url: uri,
       deserializer: msg => {
+
         const res = msg;
           if (res.data === "end") {
-            // Here you have a complete pdf as Arraybuffer, you can do whatever you want
-              console.log( "Done" );
+            console.log( "Done" );
           } else {
-              console.log(msg.data)
+            console.log(msg.data.trim());
           }
           return { type: "error" };
       },
       closeObserver: this.closeSubject,
       openObserver: {
-        next: () => {console.log('Underlying WebSocket connection open');this.connected=true;this.networkError=false;} 
+        next: () => {
+          console.log('Underlying WebSocket connection open');
+          this.connected=true;
+          this.networkError=false;
+        } 
       } 
     
     });
     
     console.log("CONNECTING : ",uri);
-    this.subscribe();
-    this.connected = true;
-
+    this.subscribeSocket();
 
   }
 

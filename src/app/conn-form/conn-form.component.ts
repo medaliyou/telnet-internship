@@ -22,12 +22,13 @@ export class ConnFormComponent implements OnInit {
 
   constructor(
     private fcs : FormControlService, 
-    private wsService : WebSocketService
+    public wsService : WebSocketService
 
     ) {}
 
   onReset(){
     this.wsService.close();
+    
     this.form.reset();
     
 

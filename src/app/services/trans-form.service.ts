@@ -22,7 +22,8 @@ export class TransFormService {
 
         ],
         required: true,
-        order: 4
+        order: 4,
+        value: 'sale'
       }),
       new FormDropdown({
         key: 'currency',
@@ -35,21 +36,26 @@ export class TransFormService {
 
         ],
         required: true,
-        order: 3
+        order: 3,
+        value: 'tnd'
+
       }),
       new FormTextbox({
         key: 'card',
         label: 'Bank Card',
         required: true,
         order: 1,
-        type: 'number'
+        type: 'number',
+        value: '0'
+
       }),
       new FormTextbox({
         key: 'amount',
         label: 'Amount',
         required: true,
         order: 2,
-        type: 'number'
+        type: 'number',
+        value: '0'
 
       })
     ];

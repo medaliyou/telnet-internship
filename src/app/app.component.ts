@@ -5,7 +5,6 @@ import { ConnFormService } from './services/conn-form.service';
 import { TransFormService } from './services/trans-form.service';
 import { WebSocketService } from './services/web-socket.service';
 
-
 @Component({
 
   selector: 'app-root',
